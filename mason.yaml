@@ -1,0 +1,5 @@
+bricks:
+  hello: 0.1.0+1
+  finzi_page:
+    path: bricks/finzi_page
+  atomic_csr_feature: ^0.2.0+4

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "142895664694",
+    "firebase_url": "https://expenses-app-e9064-default-rtdb.firebaseio.com",
+    "project_id": "expenses-app-e9064",
+    "storage_bucket": "expenses-app-e9064.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142895664694:android:b277e07579d8e14e305297",
+        "android_client_info": {
+          "package_name": "com.creaticdevs.personal_expenses_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "142895664694-4i9jqghlu8ppfo942sb7isgk7up4v76s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQRLKwjUJkB56nkxgt1iiIMNrJrxc2oVU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "142895664694-4i9jqghlu8ppfo942sb7isgk7up4v76s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
