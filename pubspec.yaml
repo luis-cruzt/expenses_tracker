@@ -28,24 +28,40 @@ environment:
 # dependencies can be manually updated by changing the version numbers below to
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
-dependencies:
-  crypto: ^3.0.2
+dependencies:  
+  awesome_notifications: ^0.7.4+1
+  clipboard: ^0.1.3
+  collection: ^1.16.0
   cupertino_icons: ^1.0.2
+  cupertino_lists: ^1.0.1
+  cupertino_onboarding: ^1.1.1
+  currency_text_input_formatter: ^2.1.8
+  dartz: ^0.10.1
   firebase_auth: ^4.2.5
   firebase_core: ^2.4.1
   firebase_database: ^10.0.9
   flutter:
-    sdk: flutter
-  flutter_riverpod: ^2.1.3
+    sdk: flutter    
+  flutter_riverpod: ^2.1.3  
+  font_awesome_flutter: ^10.3.0
   google_fonts: ^3.0.1
-  riverpod: ^2.1.3
-  sign_in_with_apple: ^4.3.0
+  google_sign_in: ^5.4.3
+  grouped_list: ^5.1.2
+  intl: ^0.17.0
+  loader_overlay: ^2.1.0  
+  modal_bottom_sheet: ^2.1.2
+  riverpod: ^2.1.3  
   very_good_analysis: ^3.1.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.11.0
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  ios: true
+  image_path: "assets/icon/logo.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

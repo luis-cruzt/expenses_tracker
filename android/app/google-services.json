@@ -30,6 +30,13 @@
             {
               "client_id": "142895664694-4i9jqghlu8ppfo942sb7isgk7up4v76s.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "142895664694-klfem68m5bmomm1svu2g9l3q1sqdcbe1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.personalExpensesTracker"
+              }
             }
           ]
         }
