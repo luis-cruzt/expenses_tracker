@@ -78,12 +78,14 @@ class SummaryController extends StateNotifier<SummaryState> {
   /// Returns:
   ///   A Future<ResponseModel>
   Future<ResponseModel> addNewExpense({
-    required ExpenseItem expenseItem,
+    required bool isGlobal,
     required String listName,
+    required ExpenseItem expenseItem,
   }) async {
     final result = await _firebaseService.addNewExpense(
-      expenseItem: expenseItem,
       listName: listName,
+      isGlobal: isGlobal,
+      expenseItem: expenseItem,
     );
     return result.fold(
       (l) => ResponseModel(ok: false, message: l.error),

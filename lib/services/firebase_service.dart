@@ -38,8 +38,9 @@ abstract class FirebaseService {
 
   /// It's adding a new expense to the database.
   Future<Either<Failure, Success>> addNewExpense({
-    required ExpenseItem expenseItem,
+    required bool isGlobal,
     required String listName,
+    required ExpenseItem expenseItem,
   });
 
   /// It's a method that returns a list of ExpenseItem objects.
@@ -173,15 +174,17 @@ class FirebaseServiceImpl implements FirebaseService {
 
   @override
   Future<Either<Failure, Success>> addNewExpense({
-    required ExpenseItem expenseItem,
+    required bool isGlobal,
     required String listName,
+    required ExpenseItem expenseItem,
   }) async {
     try {
       final uid = await _getUid();
-      final expenseId = ref.ref(uid).child(listName).push().key;
+      final expenseId =
+          ref.ref(isGlobal ? 'global_lists' : uid).child(listName).push().key;
       final expenseItemFinal = expenseItem.copyWith(id: expenseId);
       await ref
-          .ref(uid)
+          .ref(isGlobal ? 'global_lists' : uid)
           .child('$listName/$expenseId')
           .update(expenseItemFinal.toMap());
       return Right(Success(ok: true));

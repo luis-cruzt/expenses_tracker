@@ -14,6 +14,7 @@ import 'package:personal_expenses_tracker/auth/auth_service.dart';
 import 'package:personal_expenses_tracker/list_details/expense_detail_screen.dart';
 import 'package:personal_expenses_tracker/services/models.dart';
 import 'package:personal_expenses_tracker/summary/summary_controller.dart';
+import 'dart:ui' as ui;
 
 /// `ListDetailsScreen` is a `StatelessWidget` that displays a list of expenses for a given list
 class ListDetailsScreen extends StatefulWidget {
@@ -385,6 +386,7 @@ class _ListDetailsScreenState extends State<ListDetailsScreen> {
                           .read(summaryControllerProvider.notifier)
                           .addNewExpense(
                             expenseItem: expenseItem,
+                            isGlobal: widget.isGlobalList,
                             listName: widget.userLists.name,
                           );
 
@@ -449,8 +451,8 @@ class _ListDetailsScreenState extends State<ListDetailsScreen> {
                         controller: descriptionController,
                         textAlign: TextAlign.right,
                       ),
-                      GestureDetector(
-                        behavior: HitTestBehavior.translucent,
+                      CupertinoTextFormFieldRow(
+                        readOnly: true,
                         onTap: () {
                           showCupertinoModalPopup<void>(
                             context: context,
@@ -465,9 +467,9 @@ class _ListDetailsScreenState extends State<ListDetailsScreen> {
                                       child: CupertinoPicker(
                                         itemExtent: 32,
                                         scrollController:
-                                            FixedExtentScrollController(
-                                                initialItem: 0),
+                                            FixedExtentScrollController(),
                                         onSelectedItemChanged: (v) {
+                                          debugPrint(v.toString());
                                           if (v == 0) {
                                             categoryController.text =
                                                 'personal';
@@ -485,8 +487,10 @@ class _ListDetailsScreenState extends State<ListDetailsScreen> {
                                       width: double.infinity,
                                       child: CupertinoButton(
                                         child: const Text('Seleccionar'),
-                                        onPressed: () =>
-                                            Navigator.of(modalContext).pop(),
+                                        onPressed: () {
+                                          categoryController.text = 'personal';
+                                          Navigator.of(modalContext).pop();
+                                        },
                                       ),
                                     )
                                   ],
@@ -495,16 +499,13 @@ class _ListDetailsScreenState extends State<ListDetailsScreen> {
                             ),
                           );
                         },
-                        child: CupertinoTextFormFieldRow(
-                          readOnly: true,
-                          controller: categoryController,
-                          prefix: const Text('Categoría'),
-                          placeholder: 'selecciona una categoría',
-                          textAlign: TextAlign.right,
-                        ),
+                        controller: categoryController,
+                        prefix: const Text('Categoría'),
+                        placeholder: 'selecciona una categoría',
+                        textAlign: TextAlign.right,
                       ),
-                      GestureDetector(
-                        behavior: HitTestBehavior.translucent,
+                      CupertinoTextFormFieldRow(
+                        readOnly: true,
                         onTap: () {
                           showCupertinoModalPopup<void>(
                             context: context,
@@ -519,6 +520,7 @@ class _ListDetailsScreenState extends State<ListDetailsScreen> {
                                       child: CupertinoDatePicker(
                                         initialDateTime: DateTime.now(),
                                         mode: CupertinoDatePickerMode.date,
+                                        dateOrder: DatePickerDateOrder.dmy,
                                         onDateTimeChanged: (val) {
                                           dateController.text =
                                               DateFormat('yyyy-MM-dd')
@@ -530,8 +532,12 @@ class _ListDetailsScreenState extends State<ListDetailsScreen> {
                                       width: double.infinity,
                                       child: CupertinoButton(
                                         child: const Text('Seleccionar'),
-                                        onPressed: () =>
-                                            Navigator.of(modalContext).pop(),
+                                        onPressed: () {
+                                          dateController.text =
+                                              DateFormat('yyyy-MM-dd')
+                                                  .format(DateTime.now());
+                                          Navigator.of(modalContext).pop();
+                                        },
                                       ),
                                     )
                                   ],
@@ -540,13 +546,10 @@ class _ListDetailsScreenState extends State<ListDetailsScreen> {
                             ),
                           );
                         },
-                        child: CupertinoTextFormFieldRow(
-                          readOnly: true,
-                          controller: dateController,
-                          prefix: const Text('Fecha'),
-                          placeholder: 'selecciona una fecha',
-                          textAlign: TextAlign.right,
-                        ),
+                        controller: dateController,
+                        prefix: const Text('Fecha'),
+                        placeholder: 'selecciona una fecha',
+                        textAlign: TextAlign.right,
                       ),
                       CupertinoTextFormFieldRow(
                         controller: valueController,
