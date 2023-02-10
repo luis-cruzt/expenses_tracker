@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:collection/collection.dart';
-import 'package:cupertino_lists/cupertino_lists.dart';
 import 'package:cupertino_onboarding/cupertino_onboarding.dart';
 import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,7 +13,6 @@ import 'package:personal_expenses_tracker/auth/auth_service.dart';
 import 'package:personal_expenses_tracker/list_details/expense_detail_screen.dart';
 import 'package:personal_expenses_tracker/services/models.dart';
 import 'package:personal_expenses_tracker/summary/summary_controller.dart';
-import 'dart:ui' as ui;
 
 /// `ListDetailsScreen` is a `StatelessWidget` that displays a list of expenses for a given list
 class ListDetailsScreen extends StatefulWidget {
